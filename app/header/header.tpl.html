@@ -1,0 +1,9 @@
+<div ng-controller="HeaderController as vm">
+  <header>
+    <img class="nav-logo" src="img/logo.png" alt="">
+    <span class="nome-sistema">SISTECH</span>
+    <span class="corTexto dados-logado">{{vm.usuarioLogado.nome}} - {{vm.usuarioLogado.perfil}} <a class="btn-sair" href="" ng-click="vm.sair()">SAIR</a></span>
+    <hr>
+  </header>
+</div>
+

@@ -1,0 +1,65 @@
+<header ng-include="'./header/header.tpl.html'"></header>
+<div class="formulario-cadastro-produto" ng-controller="PedidosController as vm" ng-init="vm.iniciar()">
+            
+    <form class="form-goup formulario border-radius-form" name="vm.pedidoForm" ng-submit="vm.cadastrar()">
+        <h4 class="centralizar mt-3">Cadastro Pedido</h4>
+        <div class="form-group row">
+            <label for="formCpfCliente" class="col-md-2 col-form-label"> <strong>CPF</strong></label>
+            <div class="col-md-6">
+                <input type="text" class="form-control" name="cpfCliente" id="formCpfCliente" placeholder="CPF do cliente" 
+                ng-model="vm.pedido.cpfCliente">
+            </div> 
+            <div class="col-md-4">
+                <button class="btn btn-primary">Consultar</button>
+            </div>
+        </div>
+        <hr>
+        <div class="form-group row">
+            <label for="formProdutos" class="col-md-3 col-form-label"><strong>Produto</strong></label>
+            <select class="col-md-9 form-control" name="produtos" id="formProdutos" ng-model="vm.produtos.produto">
+                <option value="">Selecione um Produto</option>
+                <option ng-repeat="produto in vm.listaProdutos track by $index" value="{{produto.codigo}}">{{produto.produto}} - R$ {{produto.valor}}</option>
+            </select>
+        </div>
+        <div class="form-group row">
+
+            <label for="formQuantidade" class="col-md-3 col-form-label"><strong>Quantidade</strong></label>
+            <div class="col-md-5">
+                <input type="number" class="form-control" name="quantidade" id="formQuantidade" min="1" ng-model="vm.produtos.quantidade">
+            </div>
+            <div class="col-md-4">
+                <a class="btn btn-success btn-block" ng-click="vm.add()">Add</a>
+            </div>
+        </div>
+        <div class="tabela-produtos">
+            <h4 class="corTexto centralizar mt-3">Produtos</h4>    
+            <table class="table corTexto">
+                <thead class="detalhar-pedido">
+                  <tr>
+                    <th class="centralizar" scope="col">Produto</th>
+                    <th class="centralizar" scope="col">Quantidade</th>
+                    <th class="centralizar" scope="col">Valor</th>
+                    <th class="centralizar" scope="col">Valor Total</th>  
+                </tr>
+                </thead>
+                <tbody>
+                
+                    <tr class="tb-produto" ng-repeat="pdt in vm.produtos">
+                        <th class="centralizar" scope="row">{{pdt.produto}}</th>
+                        <td class="centralizar">{{pdt.quantidade}}</td>
+                        <td class="centralizar">{{pdt.valor}}</td>
+                        <td class="centralizar">{{pdt.valorTotal}}</td>
+                    </tr>
+                
+                  
+                </tbody>
+               
+              </table>
+        </div>
+        <div class="centralizar-elementos">
+            <button class="btn btn-warning mt-4 mb-5 btn-md btn-block" type="submit" ><strong>Cadastrar Pedido</strong></button>
+        </div>        
+    </form>
+    
+</div>
+<header ng-include="'./footer/footer.tpl.html'"></header>

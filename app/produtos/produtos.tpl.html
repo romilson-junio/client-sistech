@@ -1,0 +1,38 @@
+<header ng-include="'./header/header.tpl.html'"></header>
+<div class="tabela-produtos" ng-controller="ProdutosController as vm" ng-init="vm.iniciar()">
+    <h4 class="corTexto centralizar mt-3">Produtos</h4>    
+    <table class="table corTexto">
+        <thead>
+          <tr>
+            <th class="centralizar" scope="col">Código</th>
+            <th class="centralizar" scope="col">Produto</th>
+            <th class="centralizar" scope="col">Quantidade</th>
+            <th class="centralizar" scope="col">Valor</th>
+            <th class="centralizar" scope="col">Margem de Lucro</th>
+            <th class="centralizar" scope="col">Operação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="tb-produto" ng-repeat="pdt in vm.listaProdutos track by $index">
+            <th class="centralizar" scope="row">{{pdt.codigo}}</th>
+            <td class="centralizar">{{pdt.produto}}</td>
+            <td class="centralizar">{{pdt.quantidade}}</td>
+            <td class="centralizar">R$ {{pdt.valor}}</td>
+            <td class="centralizar">{{pdt.margenLucro}}%</td>
+            <td class="centralizar">
+                <a class="operacao-edit" href="">editar</a>
+                <a class="operacao-delete" href="">deletar</a>
+            </td>
+          </tr>
+          
+        </tbody>
+       
+      </table>
+      <hr>
+      <div class="tb-footer corTexto">
+        <a href="" class="btn-paginacao"><<</a>
+        Mostando {{vm.listaProdutos.length}} de {{vm.listaProdutos.length}} registros
+        <a href="" class="btn-paginacao">>></a>
+      </div>
+</div>
+<header ng-include="'./footer/footer.tpl.html'"></header>

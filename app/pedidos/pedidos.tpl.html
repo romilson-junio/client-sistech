@@ -1,0 +1,41 @@
+<header ng-include="'./header/header.tpl.html'"></header>
+<div ng-controller="PedidosController as vm" ng-init="vm.iniciar()">
+    
+    <div class="tabela-produtos">
+        <h4 class="corTexto centralizar mt-3">Pedidos</h4>    
+        <table class="table corTexto">
+            <thead>
+              <tr>
+                <th class="centralizar" scope="col">Código</th>
+                <th class="centralizar" scope="col">Vendedor</th>
+                <th class="centralizar" scope="col">Valor</th>
+                <th class="centralizar" scope="col">Cliente</th>
+                <th class="centralizar" scope="col">Data</th>
+                <th class="centralizar" scope="col">Operação</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="tb-produto" ng-repeat="pedido in vm.listaPedidos track by $index">
+                <th class="centralizar" scope="row">{{pedido.codigo}}</th>
+                <td class="centralizar">{{pedido.vendedor}}</td>
+                <td class="centralizar">R$ {{pedido.valorTotal}}</td>
+                <td class="centralizar">{{pedido.cpfCliente}}</td>
+                <td class="centralizar">{{pedido.data | date:'dd/MM/yyyy'}}</td>
+                <td class="centralizar">
+                    <a class="operacao-visualizar" ng-click="vm.redirecionar(pedido)" href="">detalhar</a>
+                </td>
+              </tr>
+                           
+            </tbody>
+           
+            </table>
+            <hr>
+            <div class="tb-footer corTexto">
+              <a href="" class="btn-paginacao"><<</a>
+              Mostando {{vm.listaPedidos.length}} de {{vm.listaPedidos.length}} registros
+              <a href="" class="btn-paginacao">>></a>
+            </div>
+    </div>
+
+</div>
+<header ng-include="'./footer/footer.tpl.html'"></header>

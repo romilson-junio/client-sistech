@@ -1,0 +1,6 @@
+<footer ng-controller="FooterController as vm">
+    <a class="btn-footer" ng-if="vm.path() == '/pedidos'" href="/#!/pedidos/cadastro">CADASTRAR</a>
+    <a class="btn-footer" ng-if="vm.path() == '/produtos'" href="/#!/produtos/cadastro">CADASTRAR</a>
+    <a class="btn-footer" ng-if="vm.path() == '/pedidos/detalhar'" href="/#!/produtos/cadastro">EXCLUIR</a>
+    <a class="btn-footer" href="#">VOLTAR</a>
+</footer>

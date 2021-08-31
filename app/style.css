@@ -1,0 +1,211 @@
+.c-pointer {
+    cursor: pointer;
+}
+body{
+    background-image: url('img/background.jpg');
+}
+.nome-sistema{
+    color: orange;
+    /*box-shadow: 10px 5px 5px rgba(255, 165, 0, 0.5);*/
+}
+.imagem-logo{
+    height: 40px;
+    width: 40px;
+}
+.corTexto{
+    color: white;
+}
+.formulario-login{
+   margin: 40px 33% 40px 33%;
+   padding: 0 40px 0 40px;
+}
+.formulario{
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 5px 25px 5px 25px;
+    border: 1px solid white;
+    box-shadow: 10px 5px 5px rgba(255, 255, 255, 0.5);
+}
+.centralizar{
+    text-align: center;
+}
+.page-menu{
+    margin-top: 220px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+a.menu{
+    color: white;
+    border: 1px solid white;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 15px 30px;
+    margin-right: 50px;
+    border-radius: 5px;
+}
+a.menu:hover{
+    text-decoration: none;
+    background-color: rgba(255, 255, 255);
+    color: black;
+}
+.nav-logo{
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.dados-logado{
+    padding-top: 30px;
+    padding-right: 10px;
+    position: absolute;
+    right: 0px;
+}
+span.nome-sistema{
+    font-size: 40px;
+}
+hr{
+    background-color: white;
+}
+
+.btn-sair{
+    border: 1px solid white;
+    color: white;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 2px 15px;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+a.btn-sair:hover{
+    text-decoration: none;
+    background-color: rgba(255, 255, 255);
+    color: black;
+}
+footer{
+    position: fixed;
+    right: 0;
+    bottom: 15px;
+}
+a.btn-footer{
+    border: 1px solid white;
+    color: white;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 15px 30px;
+    margin-right: 50px;
+    border-radius: 5px;
+}
+a.btn-footer:hover{
+    text-decoration: none;
+    background-color: rgba(255, 255, 255);
+    color: black;
+}
+.formulario-cadastro-usuario, .formulario-cadastro-produto{
+    margin: 35px 25% 5px 25%;
+    padding: 0 40px 0 40px;
+}
+.border-radius-form{
+    padding: 0 50px 0 50px;
+    border-top-left-radius: 100px 100px;
+    border-bottom-right-radius: 100px 100px;
+}
+.centralizar-elementos{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tabela-produtos{
+    margin: 35px 30px 5px 30px;
+    padding: 0 20px 0 20px;
+}
+.tb-produto:hover{
+    background-color: rgba(255, 255, 255, 0.5);
+    color: black;
+    font-weight: bold;
+}
+a.operacao-edit{
+    border: 1px solid #565656;
+    border-radius: 5px;
+    padding: 5px 15px;
+    margin-right: 10px;
+    color: white;
+}
+a.operacao-edit:hover{
+    text-decoration: none;
+    background-color: #565656;
+    color: white;
+}
+a.operacao-delete{
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 5px 15px;
+    margin-right: 10px;
+    color: white;
+}
+a.operacao-visualizar{
+    border: 1px solid blue;
+    border-radius: 5px;
+    padding: 5px 15px;
+    margin-right: 10px;
+    color: white;
+}
+a.operacao-visualizar:hover{
+    text-decoration: none;
+    background-color: blue;
+    color: white;
+}
+
+a.operacao-delete:hover{
+    text-decoration: none;
+    background-color: red;
+    color: white;
+}
+tfoot, thead{
+    color: orange;
+}
+thead.detalhar-pedido{
+    color: white;
+}
+.tb-footer{
+    position: absolute;
+    right: 50px;
+    font-size: 80%;
+}
+.link-esqueci-senha{
+    position: relative;
+    left: 140px;
+    font-size: 80%;
+    color: blue;
+}
+.link-esqueci-senha:hover{
+    color: black;
+}
+.btn-paginacao{
+    
+    color: white;
+    padding: 2px 8px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.btn-paginacao:hover{
+    color: black;
+    text-decoration: none;
+}
+.login{
+    border-radius: 50px;
+}
+.produto-cadastrado{
+    height: 250px;
+    width: 250px;
+}
+.inline{
+
+    display: inline;
+}
+.tabela-produtos-pedidos{
+    margin: 0 400px;
+}

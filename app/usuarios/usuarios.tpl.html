@@ -1,0 +1,33 @@
+<header ng-include="'./header/header.tpl.html'"></header>
+<div class="formulario-cadastro-usuario" ng-controller="UsuariosController as vm">
+        
+    <form class="form-goup formulario border-radius-form" name="vm.usuarioForm" ng-submit="vm.cadastrar()">
+        <h4 class="centralizar mt-3">Cadastro Usuário</h4>
+        <label class="mt-2" for="formEmailUsuario"><strong>E-mail</strong></label>
+        <input class="form-control" type="email" name="emailUsuario" id="formEmailUsuario" ng-model="vm.usuario.email">
+
+        <label class="mt-2" for="formNomeUsuario"><strong>Nome</strong></label>
+        <input class="form-control" type="text" name="nomeUsuario" id="formNomeUsuario" ng-model="vm.usuario.nome">
+
+        <div class="form-row mt-2">
+            <div class="col-md-6">
+                <label for="formCpfUsuario"><strong>CPF</strong></label>
+                <input class="form-control" type="text" name="cpfUsuario" id="formCpfUsuario"  ng-model="vm.usuario.cpf">                    
+            </div>
+            <div class="col-md-6">
+                <label for="formPerfilUsuario"><strong>Perfil</strong></label>
+                <select class="form-control" name="perfilUsuario" id="formPerfilUsuario"  ng-model="vm.usuario.perfil">
+                    <option value="Gerente">Gerente</option>
+                    <option value="Vendedor">Vendedor</option>
+                    <option value="Estoquista">Estoquista</option>
+                    <option value="Administrador">Administrador</option>
+                </select>                    
+            </div>
+        </div>
+        <div class="centralizar-elementos">
+            <button type="submit" class="btn btn-warning mt-4 mb-5 btn-md btn-block"><strong>Cadastrar Usuário</strong></button>
+        </div>
+
+    </form>
+</div>
+<header ng-include="'./footer/footer.tpl.html'"></header>

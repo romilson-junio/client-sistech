@@ -1,0 +1,23 @@
+<div ng-controller="LoginController as vm">
+    <div class="formulario-login" ng-if="!vm.usuarioLogado">
+        <div class="centralizar">
+            <h3 class="nome-sistema"><img class="imagem-logo" src="img/logo.png" alt="">&nbsp;&nbsp;&nbsp;SISTECH</h1>
+            <p class="corTexto">Sistema de Gestão de Estoque e Vendas</p>
+        </div>
+        <form class="form-goup formulario" name="vm.formLogin" ng-submit="vm.logar()">
+            
+            <label class="centralizar-elementos mt-4 mb-2" for="usuarioForm"><strong>Usuário</strong></label>
+            <input class="form-control" id="usuarioForm" type="email" name="email" value="{{vm.usuario.email}}" ng-model="vm.usuario.email" required>
+    
+            <label class="centralizar-elementos mt-4 mb-2" for="senhaForm"><strong>Senha</strong></label>
+            <input class="form-control" id="senhaForm" type="password" name="senha" value="{{vm.usuario.senha}}" ng-model="vm.usuario.senha" required>
+            <input class="mt-4" type="checkbox" name="" id=""> Lembrar-me
+    
+            <span><a class="link-esqueci-senha" href="">Esqueci Senha</a></span>
+            <div class="centralizar-elementos">
+                <button type="submit" class="btn btn-warning mt-3 mb-5 btn-md btn-block"><strong>Entrar</strong></button>
+            </div>
+            
+        </form>
+    </div>
+</div>

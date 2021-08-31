@@ -1,0 +1,70 @@
+<header ng-include="'./header/header.tpl.html'"></header>
+<div ng-controller="PedidosController as vm" ng-init="vm.pedido()">
+    <div id="alertas" class="container" ng-show="vm.pedidoDetalhado == null">
+        <div class="alert alert-danger" role="alert">
+            Erro na conexão!
+            <button type="button" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+    <div ng-show="vm.pedidoDetalhado != null">
+        <form class="form-goup m-5 formulario">
+            <h4 class="centralizar mt-3 mb-4">Detalhamento do Pedido</h4>
+            <div class="form-group row">
+              <label for="formCodigo" class="col-md-1 col-form-label"> <strong>Código</strong></label>
+                <div class="col-md-1">
+                    <input type="text" class="form-control" name="codigo" id="formCodigo" value="{{vm.pedidoDetalhado.codigo}}" disabled>
+                </div>  
+              <label for="formDataPedido" class="col-md-2 col-form-label"> <strong>Data Pedido</strong></label>
+              <div class="col-md-3">
+                  <input type="text" class="form-control" name="dataPedido" id="formDataPedido" value="{{vm.pedidoDetalhado.data}}" disabled>
+              </div>
+              <label for="formValorTotal" class="col-md-2 col-form-label"> <strong>Valor Total</strong></label>
+              <div class="col-md-2">
+                  <input type="text" class="form-control" name="valorTotal" id="formValorTotal" value="R$ {{vm.pedidoDetalhado.valorTotal}}" disabled>
+              </div>   
+            </div>
+            <hr>
+            <div class="form-group row">
+              <label for="formCpfCliente" class="col-md-1 col-form-label"> <strong>Cliente</strong></label>
+              <div class="col-md-3">
+                  <input type="text" class="form-control" name="cpfCliente" id="formCpfCliente" value="{{vm.pedidoDetalhado.cpfCliente}}" disabled>
+              </div> 
+              <label for="formVendedor" class="col-md-1 col-form-label"> <strong>Vendedor</strong></label>
+              <div class="col-md-3">
+                  <input type="text" class="form-control" name="vendedor" id="formVendedor" value="{{vm.pedidoDetalhado.vendedor}}" disabled>
+              </div>  
+            </div>
+            <hr>
+          </form>
+          <div class="tabela-produtos tabela-produtos-pedidos">
+              <h4 class="corTexto centralizar mt-3">Pedidos</h4>    
+              <table class="table corTexto">
+                <thead>
+                  <tr>
+                    <th class="centralizar" scope="col">Item</th>
+                    <th class="centralizar" scope="col">Produto</th>
+                    <th class="centralizar" scope="col">Valor</th>
+                    <th class="centralizar" scope="col">Quantidade</th>
+                    <th class="centralizar" scope="col">Valor Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="tb-produto" ng-repeat="produto in vm.pedidoDetalhado.produtos track by $index">
+                    <th class="centralizar" scope="row">{{produto.id}}</th>
+                    <td class="centralizar">{{produto.produto}}</td>
+                    <td class="centralizar">R$ {{produto.valor}}</td>
+                    <td class="centralizar">{{produto.quantidade}}</td>
+                    <td class="centralizar">R$ {{produto.quantidade * produto.valor}}</td>
+                  </tr>             
+                </tbody>
+                 
+              </table>
+                  <hr>
+                
+          </div>
+    </div>
+
+</div>    
+<header ng-include="'./footer/footer.tpl.html'"></header>
