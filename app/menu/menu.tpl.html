@@ -1,48 +1,8 @@
-<header ng-include="'./header/header.tpl.html'"></header>
-<!--
-<div class="tabela-produtos" ng-controller="ProdutosController as vm" ng-init="vm.baixoEstoque()" ng-show="vm.produtosBaixoEstoque.length > 0">
-    <h4 class="corTexto centralizar mt-3">Estoque Baixo</h4>    
-    <table class="table corTexto">
-        <thead>
-          <tr>
-            <th class="centralizar" scope="col">Código</th>
-            <th class="centralizar" scope="col">Produto</th>
-            <th class="centralizar" scope="col">Quantidade</th>
-            <th class="centralizar" scope="col">Valor</th>
-            <th class="centralizar" scope="col">Margem de Lucro</th>
-            <th class="centralizar" scope="col">Operação</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="tb-produto" ng-repeat="item in vm.produtosBaixoEstoque track by $index">
-            <th class="centralizar" scope="row">{{item.codigo}}</th>
-            <td class="centralizar">{{item.produto}}</td>
-            <td class="centralizar">{{item.quantidade}}</td>
-            <td class="centralizar">R$ {{item.valor}}</td>
-            <td class="centralizar">{{item.margenLucro}}%</td>
-            <td class="centralizar">
-              <a class="operacao-edit" href="">atualizar</a>
-            </td>
-          </tr>
-        </tbody>
-        
-      </table>
-      <hr>
-      <div class="tb-footer corTexto">
-        <a href="" class="btn-paginacao"><<</a>
-        Mostando 5 de 20 registros
-        <a href="" class="btn-paginacao">>></a>
-      </div>
-        -->
-      <!--<div ng-hide="vm.produtosBaixoEstoque.length > 0">-->
-        <div ng-controller="MenuController as vm" ng-init="vm.validarPerfil()">
-            <div class="page-menu">
-                <span ng-repeat="item in vm.links">
-                    <a class="menu mb-3" ng-href="/#!/{{item | lowercase}}" >{{item}}</a>
-                </span>       
-            </div>    
-        </div>
-    <!--</div>-->
-<!--</div>-->
+<div ng-controller="MenuController as vm" ng-init="vm.validarPerfil()">
+    <div class="col-12 page-menu">
+      <a ng-repeat="item in vm.links" class="menu" ng-href="/#!/{{item | lowercase}}" >{{item}}</a>
+    </div>    
+</div>
+
 
 

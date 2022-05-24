@@ -24,14 +24,17 @@
         <div class="form-group row">
 
             <label for="formQuantidade" class="col-md-3 col-form-label"><strong>Quantidade</strong></label>
-            <div class="col-md-5">
+            <div class="col-md-2">
                 <input type="number" class="form-control" name="quantidade" id="formQuantidade" min="1" ng-model="vm.produtos.quantidade">
+            </div>
+            <div class="col-md-3">
+                <input type="text" disabled class="form-control" name="valorTotal" id="valorTotal" min="1" ng-value="vm.getValorTotalPedido()">
             </div>
             <div class="col-md-4">
                 <a class="btn btn-success btn-block" ng-click="vm.add()">Add</a>
             </div>
         </div>
-        <div class="tabela-produtos">
+        <div class="tabela-produtos tabela-produtos-pedido">
             <h4 class="corTexto centralizar mt-3">Produtos</h4>    
             <table class="table corTexto">
                 <thead class="detalhar-pedido">
@@ -42,9 +45,9 @@
                     <th class="centralizar" scope="col">Valor Total</th>  
                 </tr>
                 </thead>
-                <tbody>
+                <tbody class="produtos-pedido">
                 
-                    <tr class="tb-produto" ng-repeat="pdt in vm.produtos">
+                    <tr class="tb-produto" ng-repeat="pdt in vm.adicionados">
                         <th class="centralizar" scope="row">{{pdt.produto}}</th>
                         <td class="centralizar">{{pdt.quantidade}}</td>
                         <td class="centralizar">{{pdt.valor}}</td>

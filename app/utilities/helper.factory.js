@@ -23,7 +23,7 @@
         }
 
         function addAlerta(_msg, _tipo, _acao) {
-             /*
+            setRootScope('alertas', []);
              var lastMsg = $rootScope.alertas.length ?
                 $rootScope.alertas[$rootScope.alertas.length - 1] : { text: '' };
 
@@ -34,7 +34,6 @@
                     acao: _acao ? _acao : ''
                 });
             } 
-            */
             
         }
 

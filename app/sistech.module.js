@@ -2,7 +2,8 @@
     "use strict";
 
     // MODULO
-    angular.module('sisTechApp', ['ngRoute']);
+    angular.module('sisTechApp', ['ngRoute', 'chart.js']);
+    //angular.module('sisTechApp', ['ngRoute']);
 
 
 })();

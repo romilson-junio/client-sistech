@@ -20,8 +20,8 @@
             <td class="centralizar">R$ {{pdt.valor}}</td>
             <td class="centralizar">{{pdt.margenLucro}}%</td>
             <td class="centralizar">
-                <a class="operacao-edit" href="">editar</a>
-                <a class="operacao-delete" href="">deletar</a>
+                <a class="operacao-edit" ng-click="vm.editar(pdt.codigo)">editar</a>
+                <a class="operacao-delete" ng-click="vm.deletar(pdt.codigo)" >deletar</a>
             </td>
           </tr>
           

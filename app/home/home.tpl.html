@@ -1,0 +1,80 @@
+<header ng-include="'./header/header.tpl.html'"></header>
+
+<div ng-controller="HomeController as vm" ng-init="vm.iniciar()" >
+  <div class="row h-100">
+    <div class="col-2" ng-include="'./menu/menu.tpl.html'"></div>
+    <div class="col-10 dashboard">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-4 mt-2 mb-2 ml-0 pl-0 text-center">Clientes</div>
+          <div class="col-4 mt-2 mb-2 ml-0 pl-0 text-center">Vendedor</div>
+          <div class="col-4 mt-2 mb-2 ml-0 pl-0 text-center">Produtos</div>
+        </div>
+        <div class="row">
+          <div class="col-4 mt-2 mb-2 ml-0 pl-0">
+            <canvas ng-if="!vm.graficoClientes.error"
+              id="doughnut" 
+              class="chart chart-doughnut"
+              chart-hover
+              chart-colors="vm.graficoClientes.colors"
+              chart-data="vm.graficoClientes.valores" 
+              chart-labels="vm.graficoClientes.descricoes">
+            </canvas>
+            <div class="pt-5 mt-5 text-center" ng-if="vm.graficoClientes.error">Nenhum registro encontrado!</div>
+          </div>
+          <div class="col-4 mt-2 mb-2 ml-0 pl-0">
+            <canvas  ng-if="!vm.graficoVendedor.error"
+              id="doughnut" 
+              class="chart chart-doughnut"
+              chart-hover
+              chart-colors="vm.graficoVendedor.colors"
+              chart-data="vm.graficoVendedor.valores" 
+              chart-labels="vm.graficoVendedor.descricoes">
+            </canvas>
+            <div class="pt-5 mt-5 text-center" ng-if="vm.graficoVendedor.error">Nenhum registro encontrado!</div>
+          </div>
+          <div class="col-4 mt-2 mb-2 ml-0 pl-0">
+            <canvas ng-if="!vm.graficoProdutos.error"
+            id="doughnut" 
+            class="chart chart-doughnut"
+            chart-hover
+            chart-colors="vm.graficoProdutos.colors"
+            chart-data="vm.graficoProdutos.valores" 
+            chart-labels="vm.graficoProdutos.descricoes">
+          </canvas>
+          <div class="pt-5 mt-5 text-center" ng-if="vm.graficoProdutos.error">Nenhum registro encontrado!</div>
+          </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="row">
+          <div class="col-2 mb-1 ml-0 pl-0"></div>
+          <div class="col-8 mb-1 ml-0 pl-0 text-center">Vendas</div>
+          <div class="col-2 mb-1 ml-0 pl-0"></div>
+        </div>
+        <div class="row">
+          <div class="col-2 mt-1 mb-2 ml-0 pl-0"></div>
+          <div class="col-8 mt-1 mb-2 ml-0 pl-0">
+            <canvas 
+              id="line" 
+              class="chart chart-line"
+              chart-hover
+              chart-colors="vm.graficoVendas.colors"
+              chart-data="vm.graficoVendas.valores" 
+              chart-labels="vm.graficoVendas.descricoes" 
+              chart-options="vm.graficoVendas.options"
+              chart-dataset-override="vm.graficoVendas.datasetOverride">
+          </canvas>
+          </div>
+          <div class="col-2 mt-1 mb-2 ml-0 pl-0"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  
+</div>
+
+
+

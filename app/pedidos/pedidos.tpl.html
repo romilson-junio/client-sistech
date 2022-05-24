@@ -17,9 +17,9 @@
             <tbody>
               <tr class="tb-produto" ng-repeat="pedido in vm.listaPedidos track by $index">
                 <th class="centralizar" scope="row">{{pedido.codigo}}</th>
-                <td class="centralizar">{{pedido.vendedor}}</td>
+                <td class="centralizar">{{pedido.vendedor.nome}}</td>
                 <td class="centralizar">R$ {{pedido.valorTotal}}</td>
-                <td class="centralizar">{{pedido.cpfCliente}}</td>
+                <td class="centralizar">{{pedido.cliente.nome}}</td>
                 <td class="centralizar">{{pedido.data | date:'dd/MM/yyyy'}}</td>
                 <td class="centralizar">
                     <a class="operacao-visualizar" ng-click="vm.redirecionar(pedido)" href="">detalhar</a>

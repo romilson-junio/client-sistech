@@ -1,26 +1,34 @@
 <header ng-include="'./header/header.tpl.html'"></header>
 <div class="formulario-cadastro-produto" ng-controller="ProdutosController as vm">    
-    <form class="form-goup formulario border-radius-form" name="vm.produtoForm" ng-submit="vm.cadastrar()">
+    <form class="form-goup formulario border-radius-form" name="vm.produtoForm" ng-model="vm.produto">
         <h4 class="centralizar mt-3">Cadastro Produto</h4>
-        <label class="mt-2" for="formProduto"><strong>Produto</strong></label>
-        <input class="form-control" type="text" name="produto" id="formProduto" ng-model="vm.produto.produto">
+        <div class="form-row mt-2">
+            <div class="col-10">
+                <label class="mt-2" for="formProduto"><strong>Produto</strong></label>
+                <input class="form-control" type="text" name="produto" id="formProduto" ng-model="vm.produto.produto">
+            </div>
+            <div class="col-2" style="margin-top: 40px;">
+                <button class="btn btn-primary" ng-click="vm.consultarProduto(vm.produto.produto)">Consultar</button>
+            </div>
+        </div>
+        
 
         <div class="form-row mt-2">
             <div class="col-md-4">
                 <label for="formQuantidade"><strong>Quantidade</strong></label>
-                <input class="form-control" type="number" name="quantidade" id="formQuantidade" ng-model="vm.produto.quantidade">
+                <input class="form-control" type="number" name="quantidade" id="formQuantidade" ng-model="vm.produto.quantidade" min="0" ng-disabled="vm.disabled">
             </div>
             <div class="col-md-4">
                 <label for="formValor"><strong>Valor</strong></label>
-                <input class="form-control" type="number" name="valor" id="formValor" step="any" ng-model="vm.produto.valor">
+                <input class="form-control" type="number" name="valor" id="formValor" step="any" ng-model="vm.produto.valor" min="0"  ng-disabled="vm.disabled">
             </div>
             <div class="col-md-4">
                 <label for="formMargemLucro"><strong>Margem Lucro</strong></label>
-                <input class="form-control" type="number" name="margemLucro" id="formMargemLucro" step="any"  ng-model="vm.produto.margenLucro">
+                <input class="form-control" type="number" name="margemLucro" id="formMargemLucro" step="any"  ng-model="vm.produto.margenLucro" min="0" ng-disabled="vm.disabled">
             </div>
         </div>
         <div class="centralizar-elementos">
-            <button class="btn btn-warning mt-4 mb-5 btn-md btn-block"><strong>Cadastrar Produto</strong></button>
+            <button class="btn btn-warning mt-4 mb-5 btn-md btn-block" ng-click="vm.cadastrar(vm.produto)" ng-disabled="vm.disabled"><strong>Cadastrar Produto</strong></button>
         </div>        
     </form>
 </div>

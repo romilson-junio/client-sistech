@@ -29,17 +29,17 @@
             <div class="form-group row">
               <label for="formCpfCliente" class="col-md-1 col-form-label"> <strong>Cliente</strong></label>
               <div class="col-md-3">
-                  <input type="text" class="form-control" name="cpfCliente" id="formCpfCliente" value="{{vm.pedidoDetalhado.cpfCliente}}" disabled>
+                  <input type="text" class="form-control" name="cpfCliente" id="formCpfCliente" value="{{vm.pedidoDetalhado.cliente.nome}}" disabled>
               </div> 
               <label for="formVendedor" class="col-md-1 col-form-label"> <strong>Vendedor</strong></label>
               <div class="col-md-3">
-                  <input type="text" class="form-control" name="vendedor" id="formVendedor" value="{{vm.pedidoDetalhado.vendedor}}" disabled>
+                  <input type="text" class="form-control" name="vendedor" id="formVendedor" value="{{vm.pedidoDetalhado.vendedor.nome}}" disabled>
               </div>  
             </div>
             <hr>
           </form>
           <div class="tabela-produtos tabela-produtos-pedidos">
-              <h4 class="corTexto centralizar mt-3">Pedidos</h4>    
+              <h4 class="corTexto centralizar mt-3">Produtos</h4>    
               <table class="table corTexto">
                 <thead>
                   <tr>

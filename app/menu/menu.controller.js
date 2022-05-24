@@ -9,25 +9,23 @@
     function menuController(helper, $rootScope) {
         var vm = this;
 
-        vm.usuarioLogado = {
-            perfil: $rootScope.perfilLogado,
-            nome: $rootScope.nomeLogado
+        if(!window.localStorage.getItem('isAuthentication')){
+            helper.path('/login');
         }
 
-        vm.go = helper.go;
-        vm.iniciar = iniciar;
-        vm.validarPerfil = validarPerfil
+        vm.usuarioLogado = {
+            perfil: window.localStorage.getItem('perfil'),
+            nome: window.localStorage.getItem('nome')
+        }
         
+        vm.validarPerfil = validarPerfil;
+
         /* ***************    INIT VARIÁVEIS    *********************************** */
 
         /* ***************    FUNÇÕES EXECUTADAS NA VIEW (HMTL)    **************** */
         vm.page = page;
 
         /* ***************    FUNÇÕES INSTERNAS    ******************************** */
-        function page(_params) {
-            helper.path('/'+_params);
-        }
-
         function validarPerfil(){
             if(vm.usuarioLogado.perfil == 'Gerente'){
                 vm.links = ["Pedidos", "Produtos", "Clientes", "Usuarios"]
@@ -39,9 +37,10 @@
                 vm.links = ["Usuarios"]
             }
         }   
-        function iniciar() {
-            vm.go();
-        }     
+        
+        function page(_params) {
+            helper.path('/'+_params);
+        } 
 
     }
 

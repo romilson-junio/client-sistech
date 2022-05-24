@@ -8,6 +8,11 @@
 
     function usuariosController(helper, $rootScope, service, $filter) {
         var vm = this;
+
+        if(!window.localStorage.getItem('isAuthentication')){
+            helper.path('/login');
+        }
+
         vm.cadastrar = cadastrar        
         
         /* ***************    INIT VARIÁVEIS    *********************************** */

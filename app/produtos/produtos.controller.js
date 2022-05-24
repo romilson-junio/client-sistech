@@ -9,6 +9,11 @@
     function produtosController(helper, $rootScope, service, $filter) {
         var vm = this;
         
+        if(!window.localStorage.getItem('isAuthentication')){
+            helper.path('/login');
+        }
+
+        vm.disabled = true;
         
         /* ***************    INIT VARIÁVEIS    *********************************** */
 
@@ -18,6 +23,9 @@
         vm.cadastrar = cadastrar;
         vm.baixoEstoque = baixoEstoque;
         vm.listarBaixoEstoque = listarBaixoEstoque;
+        vm.editar = editar;
+        vm.deletar = deletar;
+        vm.consultarProduto = consultarProduto;
         
         /* ***************    FUNÇÕES INSTERNAS    ******************************** */
  
@@ -33,15 +41,13 @@
 
         /* ***************    FUNÇÕES INSTERNAS    ******************************** */
         
-        function cadastrar(){
-            
+        function cadastrar(produto){
             var produto = {
-                produto: vm.produto.produto,
-                quantidade: vm.produto.quantidade,
-                valor: vm.produto.valor,
-                margenLucro: vm.produto.margenLucro
+                produto: produto.produto,
+                quantidade: produto.quantidade,
+                valor: produto.valor,
+                margenLucro: produto.margenLucro
             }
-            console.log(produto)
             return service.incluirProduto(produto)
             .then(function(_resp){
                 if(_resp.error){
@@ -57,7 +63,6 @@
         function listarProdutos() {
             return service.listarProdutos()
             .then(function (_listaProdutos) {
-                console.log(_listaProdutos)
                 vm.listaProdutos = _listaProdutos;
             });
         }
@@ -73,7 +78,6 @@
                 })
                 
             });
-            console.log(produtos)
             vm.produtosBaixoEstoque = produtos
 
 
@@ -94,6 +98,27 @@
             vm.produtos.push({ produto: nomeProduto, quantidade: vm.produtos.quantidade, valor: valorProduto, margemLucro: margemLucroSelecionada, valorTotal: valorTotal })
         }
 
+        function editar(produto){
+            console.log(produto);
+        }
+
+        function deletar(produto){
+            console.log(produto);
+        }
+
+        function consultarProduto(produto){
+            if(produto){
+                service.consultarProduto(produto)
+                .then(function(_resp){
+                    if(_resp.error){
+                        vm.disabled = false;
+                    } else {
+                        vm.disabled = true;
+                        helper.addAlerta('Erro!', 'danger', 'Produto já cadastrado');
+                    }
+                });
+            }
+        }
 
     }
 

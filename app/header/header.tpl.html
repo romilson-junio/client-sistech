@@ -1,7 +1,7 @@
 <div ng-controller="HeaderController as vm">
   <header>
-    <img class="nav-logo" src="img/logo.png" alt="">
-    <span class="nome-sistema">SISTECH</span>
+    <img class="nav-logo c-pointer" src="img/logo.png" alt="" ng-click="vm.home()">
+    <span class="nome-sistema c-pointer" ng-click="vm.home()">SISTECH</span>
     <span class="corTexto dados-logado">{{vm.usuarioLogado.nome}} - {{vm.usuarioLogado.perfil}} <a class="btn-sair" href="" ng-click="vm.sair()">SAIR</a></span>
     <hr>
   </header>

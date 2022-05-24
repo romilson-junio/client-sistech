@@ -14,7 +14,11 @@
             listarProdutos: listarProdutos,
             incluirPedido: incluirPedido,
             incluirUsuario: incluirUsuario,
-            incluirProduto: incluirProduto
+            incluirProduto: incluirProduto,
+            consultarProduto: consultarProduto,
+            incluirCliente: incluirCliente,
+            listarClientes: listarClientes,
+            graficos: graficos
         }
 
         // ======================================
@@ -42,8 +46,13 @@
                 return response.data;
             }).catch(helper.sendError);
         }
+        function consultarProduto(_produto){
+            return $http.get(constantes.URL_BASE + '/produtos/'+_produto)
+            .then(function (response) {
+                return response.data;
+            }).catch(helper.sendError);
+        }
         function incluirUsuario(_usuario){
-            //console.log(_pedido);
             return $http.post(constantes.URL_BASE + '/usuarios/incluir', _usuario)
             .then(function (response) {
                 return response.data;
@@ -59,6 +68,27 @@
         }
         function listarProdutos() {
             return $http.get(constantes.URL_BASE + '/produtos')
+                .then(function (response) {
+                    //console.log(response);
+                    return response.data;
+                })
+                .catch(helper.sendError);
+        }
+        function incluirCliente(_cliente){
+            return $http.post(constantes.URL_BASE + '/clientes/incluir', _cliente)
+            .then(function (response) {
+                return response.data;
+            }).catch(helper.sendError);
+        }
+        function listarClientes(){
+            return $http.get(constantes.URL_BASE + '/clientes')
+                .then(function (response) {
+                    return response.data;
+                })
+                .catch(helper.sendError);
+        }
+        function graficos() {
+            return $http.get(constantes.URL_BASE + '/graficos')
                 .then(function (response) {
                     //console.log(response);
                     return response.data;

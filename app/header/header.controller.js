@@ -9,10 +9,12 @@
     function headerController(helper, $rootScope) {
         var vm = this;
         vm.usuarioLogado = {
-            perfil: $rootScope.perfilLogado,
-            nome: $rootScope.nomeLogado
+            
+            perfil: window.localStorage.getItem('perfil'),
+            nome: window.localStorage.getItem('nome')
         }
         vm.sair = sair
+        vm.home = home;
         /* ***************    INIT VARIÁVEIS    *********************************** */
             
          
@@ -23,8 +25,15 @@
         function sair() {
             $rootScope.perfilLogado = ''
             $rootScope.nomeLogado = ''
+            window.localStorage.clear()
             helper.path('/login');
         }
+
+        function home(){
+            helper.path('/home');
+        }
+
+
 
     }
 

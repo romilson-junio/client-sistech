@@ -1,0 +1,62 @@
+<header ng-include="'./header/header.tpl.html'"></header>
+<div id="alertas" class="container" ng-if="vm.error">
+    <div class="alert alert-danger" role="alert">
+        {{vm.errorMessage}}
+        <button type="button" class="close" aria-label="Close" ng-click="vm.close()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+</div>
+<div class="formulario-cadastro-usuario" ng-controller="ClientesController as vm">
+        
+    <form class="form-goup formulario border-radius-form" name="vm.clienteForm" ng-submit="vm.cadastrar()">
+        <h4 class="centralizar mt-3">Cadastro Cliente</h4>
+        <label class="mt-2" for="formEmailCliente"><strong>E-mail</strong></label>
+        <input class="form-control" type="email" name="emailCliente" id="formEmailCliente" ng-model="vm.cliente.email">
+
+        <label class="mt-2" for="formNomeCliente"><strong>Nome</strong></label>
+        <input class="form-control" type="text" name="nomeCliente" id="formNomeCliente" ng-model="vm.cliente.nome">
+
+        <div class="form-row mt-2">
+            <div class="col-md-6">
+                <label for="formCpfCliente"><strong>CPF</strong></label>
+                <input class="form-control" type="text" name="cpfCliente" id="formCpfCliente"  ng-model="vm.cliente.cpf">                    
+            </div>
+            <div class="col-md-6">
+                <label for="telefoneCliente"><strong>Telefone</strong></label>
+                <input class="form-control" type="tel" name="telefoneCliente" id="telefoneCliente"  ng-model="vm.cliente.telefone">                    
+            </div>
+        </div>
+        <div class="form-row mt-2">
+            <div class="col-md-2">
+                <label for="formCepCliente"><strong>CEP</strong></label>
+                <input class="form-control" type="text" name="cepCliente" id="cepCliente"  ng-model="vm.cliente.cep">                    
+            </div>
+        </div>
+        <div class="form-row mt-2">
+            <div class="col-md-4">
+                <label for="formRuaCliente"><strong>Rua</strong></label>
+                <input class="form-control" type="text" name="formRuaCliente" id="formRuaCliente"  ng-model="vm.cliente.rua">                    
+            </div>
+            <div class="col-md-4">
+                <label for="formCidadeCliente"><strong>Cidade</strong></label>
+                <input class="form-control" type="text" name="formCidadeCliente" id="formCidadeCliente"  ng-model="vm.cliente.cidade">                    
+            </div>
+            <div class="col-md-4">
+                <label for="formEstadoCliente"><strong>Estado</strong></label>
+                <input class="form-control" type="text" name="formEstadoCliente" id="formEstadoCliente"  ng-model="vm.cliente.estado">                    
+            </div>
+        </div>
+        <div class="form-row mt-2">
+            <div class="col-md-12">
+                <label for="formComplementoCliente"><strong>Complemento</strong></label>
+                <input class="form-control" type="text" name="formComplementoCliente" id="formComplementoCliente"  ng-model="vm.cliente.complemento">                    
+            </div>
+        </div>
+        <div class="centralizar-elementos">
+            <button type="submit" class="btn btn-warning mt-4 mb-5 btn-md btn-block"><strong>Cadastrar Cliente</strong></button>
+        </div>
+
+    </form>
+</div>
+<header ng-include="'./footer/footer.tpl.html'"></header>

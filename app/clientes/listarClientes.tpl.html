@@ -1,0 +1,29 @@
+<header ng-include="'./header/header.tpl.html'"></header>
+<div class="tabela-produtos" ng-controller="ClientesController as vm" ng-init="vm.listarClientes()">
+    <h4 class="corTexto centralizar mt-3">Clientes</h4>    
+    <table class="table corTexto">
+        <thead>
+          <tr>
+            <th class="centralizar" scope="col">Código</th>
+            <th class="centralizar" scope="col">Nome</th>
+            <th class="centralizar" scope="col">Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="tb-produto" ng-repeat="pdt in vm.listaClientes track by $index">
+            <th class="centralizar" scope="row">{{pdt.id}}</th>
+            <td class="centralizar">{{pdt.nome}}</td>
+            <td class="centralizar">{{pdt.email}}</td>
+          </tr>
+          
+        </tbody>
+       
+      </table>
+      <hr>
+      <div class="tb-footer corTexto">
+        <a href="" class="btn-paginacao"><<</a>
+        Mostando {{vm.listaClientes.length}} de {{vm.listaClientes.length}} registros
+        <a href="" class="btn-paginacao">>></a>
+      </div>
+</div>
+<header ng-include="'./footer/footer.tpl.html'"></header>

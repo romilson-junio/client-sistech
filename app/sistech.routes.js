@@ -13,6 +13,9 @@
             .when('/login', {
                 templateUrl: 'login/login.tpl.html',
             })
+            .when('/home', {
+                templateUrl: 'home/home.tpl.html',
+            })
             .when('/menu', {
                 templateUrl: 'menu/menu.tpl.html',
             })
@@ -28,14 +31,20 @@
             .when('/usuarios', {
                 templateUrl: 'usuarios/usuarios.tpl.html',
             })
+            .when('/clientes', {
+                templateUrl: 'clientes/listarClientes.tpl.html',
+            })
             .when('/pedidos/cadastro', {
                 templateUrl: 'pedidos/cadastro-pedido.tpl.html',
             })
             .when('/produtos/cadastro', {
                 templateUrl: 'produtos/cadastro-produto.tpl.html',
             })
+            .when('/clientes/cadastro', {
+                templateUrl: 'clientes/cadastro-cliente.tpl.html',
+            })
             .otherwise({
-                redirectTo: '/menu'
+                redirectTo: '/home'
             });
     }
 

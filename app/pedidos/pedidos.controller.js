@@ -12,7 +12,12 @@
         var data = "2016-02-18T10:23Z";
         vm.dataFormatada = $filter('date')(data, 'dd/MM/yyyy');
         
+        if(!window.localStorage.getItem('isAuthentication')){
+            helper.path('/login');
+        }
+
         vm.produtos = [];
+        vm.adicionados = [];
         /* ***************    INIT VARIÁVEIS    *********************************** */
 
         /* ***************    FUNÇÕES EXECUTADAS NA VIEW (HMTL)    **************** */
@@ -24,6 +29,7 @@
         vm.cadastrar = cadastrar;
         vm.redirecionar = redirecionar;        
         vm.pedidoDetalhar = pedidoDetalhar;
+        vm.getValorTotalPedido = getValorTotalPedido;
         /* ***************    FUNÇÕES INSTERNAS    ******************************** */
  
         function iniciar() {
@@ -39,13 +45,13 @@
         /* ***************    FUNÇÕES INSTERNAS    ******************************** */
         function cadastrar(){
             var valorTotalPedido = 0;
-            vm.produtos.forEach(element => {
+            vm.adicionados.forEach(element => {
                 valorTotalPedido += element.valorTotal
             });
             var pedido = {
-                cpfCliente: vm.pedido.cpfCliente,
-                produtos: vm.produtos,
-                vendedor: $rootScope.nomeLogado,
+                cliente: vm.pedido.cpfCliente,
+                produtos: vm.adicionados,
+                vendedor: window.localStorage.getItem('id'),
                 valorTotal: valorTotalPedido
             }
             return service.incluirPedido(pedido)
@@ -59,6 +65,7 @@
             });
                         
         }
+
         function listarPedidos() {
             return service.listarPedidos()
             .then(function (_listaPedidos) {
@@ -80,21 +87,29 @@
             helper.path('/pedidos/detalhar')
         }
         function add() {
-            var valorProduto;
-            var nomeProduto;
-            var margemLucroSelecionada;
-            var valorTotal;
-            vm.listaProdutos.forEach(element => {
-                if(element.codigo == vm.produtos.produto){
-                    valorProduto = element.valor
-                    nomeProduto = element.produto
-                    margemLucroSelecionada = element.margenLucro
-                    valorTotal = vm.produtos.quantidade * valorProduto
-                }
-            });
-            vm.produtos.push({ produto: nomeProduto, quantidade: vm.produtos.quantidade, valor: valorProduto, margemLucro: margemLucroSelecionada, valorTotal: valorTotal })
-        }
+            var produto = vm.listaProdutos.find(function (element) {
+                return element.codigo == vm.produtos.produto;
+            }); 
 
+            var codigo = produto.codigo;
+            var valorProduto = produto.valor;
+            var nomeProduto = produto.produto;
+            var quantidade = vm.produtos.quantidade;
+            var valorTotal = vm.produtos.quantidade * valorProduto;
+            
+            vm.adicionados.push({idProduto: codigo, produto: nomeProduto, quantidade: quantidade, valor: valorProduto, valorTotal: valorTotal });
+        }
+        function getValorTotalPedido(){
+            if(vm.produtos){
+                var valor = 0;
+                vm.adicionados.forEach(item => {
+                    valor += item.valorTotal
+                })
+                valor += ''
+                return 'R$ '+(valor.replace('.',','));
+            }
+            return 'R$ ';
+        }
 
     }
 

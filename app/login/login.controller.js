@@ -31,8 +31,12 @@
                     helper.addAlerta('Sucesso!', 'success','Login Efetuado com Sucesso');
                     $rootScope.perfilLogado = _resp.perfil
                     $rootScope.nomeLogado = _resp.nome
-                    helper.path('/menu');
-                    
+                    window.localStorage.setItem('perfil', _resp.perfil)
+                    window.localStorage.setItem('nome', _resp.nome)
+                    window.localStorage.setItem('email', _resp.email)
+                    window.localStorage.setItem('id', _resp.id)
+                    window.localStorage.setItem('isAuthentication', true)
+                    helper.path('/home');
                 }
             });
                

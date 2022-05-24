@@ -24,28 +24,23 @@ body{
     padding: 5px 25px 5px 25px;
     border: 1px solid white;
     box-shadow: 10px 5px 5px rgba(255, 255, 255, 0.5);
+    min-height: 50px;
+    max-height: 100%;
 }
 .centralizar{
     text-align: center;
 }
 .page-menu{
-    margin-top: 220px;
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: inline-grid
 }
-
-
 a.menu{
     color: white;
     border: 1px solid white;
     font-weight: bold;
     background-color: rgba(255, 255, 255, 0.5);
     padding: 15px 30px;
-    margin-right: 50px;
     border-radius: 5px;
+    margin-bottom: 5px;
 }
 a.menu:hover{
     text-decoration: none;
@@ -120,8 +115,11 @@ a.btn-footer:hover{
 }
 
 .tabela-produtos{
-    margin: 35px 30px 5px 30px;
     padding: 0 20px 0 20px;
+}
+.tabela-produtos-pedido{
+    overflow-y: scroll;
+    max-height: 300px;
 }
 .tb-produto:hover{
     background-color: rgba(255, 255, 255, 0.5);
@@ -129,6 +127,7 @@ a.btn-footer:hover{
     font-weight: bold;
 }
 a.operacao-edit{
+    cursor: pointer;
     border: 1px solid #565656;
     border-radius: 5px;
     padding: 5px 15px;
@@ -141,6 +140,7 @@ a.operacao-edit:hover{
     color: white;
 }
 a.operacao-delete{
+    cursor: pointer;
     border: 1px solid red;
     border-radius: 5px;
     padding: 5px 15px;
@@ -208,4 +208,9 @@ thead.detalhar-pedido{
 }
 .tabela-produtos-pedidos{
     margin: 0 400px;
+    overflow-y: scroll;
+}
+.dashboard{
+    background-color: rgba(255, 255, 255, 0.5);
+    max-height: 100%;
 }
